@@ -5,5 +5,5 @@ from home.models import  Footer
 
 def getOrderConfirmation(request):
     footer_content = Footer.objects.first()
-    contact = Contact.objects.latest('created_on')
+    contact = Contact.objects.latest('created_on')    
     return render(request, 'order-confirmation.html',{'footer':footer_content,'contact':contact,})
