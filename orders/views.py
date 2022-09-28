@@ -43,7 +43,7 @@ def addVisitConfirmation(request,csrf_token=None):
     order = OrderModel.objects.get(csrf_token=csrf_token)    
     return render(request, 'scan-success.html',{'footer':footer_content,'contact':contact,'order':order})
 
-def orderSuccess(request,csrf_token=None,event=None):
+def orderSuccess(request,csrf_token=None):
     footer_content = Footer.objects.first()
     contact = Contact.objects.latest('created_on')
     order = OrderModel.objects.filter(csrf_token=csrf_token).first()
